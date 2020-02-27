@@ -13,6 +13,13 @@ body {
 .mainContainer>div {
     background: #eee;
     padding: 1em;
+    text-align:center;
+}
+
+.mainContainer>div:hover {
+    border: solid 1px;
+    border-radius: 3px;
+   
 }
 
 .mainContainer>div:nth-child(odd) {
@@ -24,7 +31,6 @@ body {
 }
 
 .plusBtn {
-    display: inline-block;
     position: relative;
     float: right;
     right: 30%;
@@ -47,15 +53,16 @@ body {
 
 .mainModal {
     background-color: white;
-    margin: 10% auto;
-    width: 60%;
+    margin: 3% auto;
+    width: 600px;
+    height: 850px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
     animation-name: mainModalOpen;
     animation-duration: 1s;
 }
 
 .modalHeader {
-    background: coral;
+    background: gray;
     color: white;
 }
 
@@ -65,15 +72,47 @@ h2 {
 
 .modalBody {
     padding: 10px 20px;
-}
-
-.modalFooter {
-    background: coral;
-    color: white;
+    height: 735px;
     text-align: center;
 }
 
+
+.titleLbl {
+    font-size: 50px;
+    
+
+}
+
+.authorLbl {
+    position:relative;
+    font-size: 20px;
+    top:150px;
+}
+
+ .pagesLbl {
+    font-size: 15px;
+    position:relative;
+    top: 180px;
+
+}
+
+.didReadLbl {
+    font-size: 15px;
+    position:relative;
+    top: 190px;
+}
+
+.modalFooter {
+    position: relative;
+    background: gray;
+    color: white;
+    text-align: center;
+    margin: 0;
+    bottom: 0;
+}
+
 h3 {
+    margin: 0;
     padding: 5pt;
 }
 
@@ -107,7 +146,7 @@ h3 {
     background: #6dc36d;
     padding: 18px;
     border: solid 0px;
-    border-radius:2px;
+    border-radius: 2px;
     color: white;
-    right:70px;
+    right: 70px;
 }
