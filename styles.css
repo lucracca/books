@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6em;
+    grid-auto-rows: 500px;
+    padding: 70px;
+}
+
+.mainContainer>div {
+    background: #eee;
+    padding: 1em;
+}
+
+.mainContainer>div:nth-child(odd) {
+    background: #ddd;
+}
+
+.topBar {
+    float: right;
+}
+
+.plusBtn {
+    display: inline-block;
+    position: relative;
+    float: right;
+    right: 30%;
+    content: url("plus.png");
+    width: 50px;
+    height: 50px;
+}
+
+.modalDimmer {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+
+.mainModal {
+    background-color: white;
+    margin: 10% auto;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: mainModalOpen;
+    animation-duration: 1s;
+}
+
+.modalHeader {
+    background: coral;
+    color: white;
+}
+
+h2 {
+    padding: 5pt;
+}
+
+.modalBody {
+    padding: 10px 20px;
+}
+
+.modalFooter {
+    background: coral;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    padding: 5pt;
+}
+
+.closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    padding: 5pt;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes mainModalOpen {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.editBtn,
+.delBtn {
+    position: relative;
+    display: inline-block;
+    background: #6dc36d;
+    padding: 18px;
+    border: solid 0px;
+    border-radius:2px;
+    color: white;
+    right:70px;
+}
