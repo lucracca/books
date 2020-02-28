@@ -1,5 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background: rgb(32, 33, 36);
+}
+
+.topBar {
+    float: right;
 }
 
 .mainContainer {
@@ -10,27 +15,41 @@ body {
     padding: 70px;
 }
 
-.mainContainer>div {
-    background: #eee;
+.bookCard {
     padding: 1em;
-    text-align:center;
+    text-align: center;
+    color: rgb(232, 234, 237);
 }
 
-.mainContainer>div:hover {
+.bookCard label {
+    position: relative;
+}
+
+.titleLbl {
+    font-size: 50px;
+}
+
+.authorLbl {
+    font-size: 20px;
+    top: 150px;
+}
+
+.pagesLbl {
+    font-size: 15px;
+    top: 180px;
+}
+
+.didReadLbl {
+    font-size: 15px;
+    top: 190px;
+}
+
+.mainContainer>.bookCard:hover {
     border: solid 1px;
     border-radius: 3px;
-   
 }
 
-.mainContainer>div:nth-child(odd) {
-    background: #ddd;
-}
-
-.topBar {
-    float: right;
-}
-
-.plusBtn {
+img.plusBtn {
     position: relative;
     float: right;
     right: 30%;
@@ -39,10 +58,26 @@ body {
     height: 50px;
 }
 
+
+/* .editBtn,
+.delBtn {
+    position: relative;
+    display: inline-block;
+    background: #6dc36d;
+    padding: 18px;
+    border: solid 0px;
+    border-radius: 2px;
+    color: white;
+    right: 70px;
+} */
+
+
+/***************************************MODAL*****************************/
+
 .modalDimmer {
     display: none;
     position: fixed;
-    z-index: 10;
+    z-index: 1;
     overflow: auto;
     height: 100%;
     width: 100%;
@@ -66,60 +101,52 @@ body {
     color: white;
 }
 
-h2 {
-    padding: 5pt;
-}
-
 .modalBody {
-    padding: 10px 20px;
-    height: 735px;
+    padding: 0;
+    height: 810px;
     text-align: center;
 }
 
-
-.titleLbl {
-    font-size: 50px;
-    
-
-}
-
-.authorLbl {
-    position:relative;
-    font-size: 20px;
-    top:150px;
-}
-
- .pagesLbl {
-    font-size: 15px;
-    position:relative;
-    top: 180px;
-
-}
-
-.didReadLbl {
-    font-size: 15px;
-    position:relative;
-    top: 190px;
+.modalBody>.bookCard {
+    height: 820px;
+    width: auto;
 }
 
 .modalFooter {
+    display: block;
     position: relative;
-    background: gray;
     color: white;
-    text-align: center;
-    margin: 0;
-    bottom: 0;
+    text-align: left;
+    height: 30px;
+    margin:
 }
 
-h3 {
-    margin: 0;
-    padding: 5pt;
+.editBtn {
+    position: relative;
+    content: url("edit.png");
+    width: 30px;
+    height: 30px;
+}
+
+.delBtn {
+    position: relative;
+    content: url("trash.png");
+    width: 30px;
+    height: 30px;
+}
+
+.changeColorBtn {
+    position: relative;
+    content: url("changeColor.svg");
+    width: 30px;
+    height: 30px;
+    color: black;
 }
 
 .closeBtn {
     color: #ccc;
     float: right;
-    font-size: 30px;
+    font-size: 18px;
     padding: 5pt;
 }
 
@@ -139,14 +166,9 @@ h3 {
     }
 }
 
-.editBtn,
-.delBtn {
-    position: relative;
-    display: inline-block;
-    background: #6dc36d;
-    padding: 18px;
-    border: solid 0px;
-    border-radius: 2px;
-    color: white;
-    right: 70px;
+.filter-light-gray {
+    filter: invert(93%) sepia(7%) saturate(74%) hue-rotate(177deg) brightness(100%) contrast(93%);
 }
+
+
+/***************************************MODAL END*****************************/

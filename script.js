@@ -1,13 +1,30 @@
 let modalDimmer = document.getElementsByClassName("modalDimmer")[0];
 let modalBody = document.getElementsByClassName("modalBody")[0];
 let closeBtn = document.getElementsByClassName("closeBtn")[0];
+let changeColorBtn = document.getElementsByClassName("changeColorBtn")[0];
 let plusBtn = document.getElementsByClassName("plusBtn")[0];
 let editBtn = document.getElementsByClassName("editBtn")[0];
 let delBtn = document.getElementsByClassName("delBtn")[0];
 let body = document.getElementsByTagName("body")[0];
 let configMode = false;
 let br = document.createElement("br");
+let colors = ["rgb(60, 63, 67)",
+    "rgb(92, 43, 41)",
+    "rgb(97, 74, 25)",
+    "rgb(99, 93, 25)",
+    "rgb(52, 89, 32)",
+    "rgb(22, 80, 75)",
+    "rgb(45, 85, 94)",
+    "rgb(30, 58, 95)",
+    "rgb(66, 39, 94)",
+    "rgb(91, 34, 69)",
+    "rgb(68, 47, 25)",
+    "rgb(60, 63, 67)"
+];
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
 plusBtn.addEventListener("click", function(e) {
     openModal(e.target.dataset.bookIndex);
@@ -20,13 +37,14 @@ window.addEventListener("click", function(e) {
     if (e.target == modalDimmer) modalDimmer.style.display = "none";
 });
 
+editBtn.addEventListener("click", function(e) {});
+
 function openModal(bookIndex) {
     modalBody.innerHTML = "";
-    modalBody.innerHTML = (document.getElementsByClassName("bookCard")[bookIndex]).innerHTML;
+    modalBody.append(document.getElementsByClassName("bookCard")[bookIndex].cloneNode(true));
     modalDimmer.style.display = "block";
 
 }
-
 
 
 
@@ -73,6 +91,7 @@ function render(mainContainer) {
         pagesLbl.innerText = "pages: " + book.pages;
         didReadLbl.innerText = "status: " + (book.didRead ? "already read" : "not read yet");
 
+        bookCard.style.background = colors[getRandomInt(colors.length - 1)];
         bookCard.append(titleLbl, document.createElement("br"), authorLbl, document.createElement("br"), pagesLbl, document.createElement("br"), didReadLbl);
 
         mainContainer.appendChild(bookCard);
