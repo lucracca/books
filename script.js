@@ -22,6 +22,8 @@ let colors = ["rgb(60, 63, 67)",
     "rgb(60, 63, 67)"
 ];
 
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -75,11 +77,20 @@ function render(mainContainer) {
         bookCard.dataset.bookIndex = i;
         bookCard.addEventListener("click", e => openModal(e.target.dataset.bookIndex));
 
+        let lbl1 = document.createElement("label");
+        let lbl2 = document.createElement("label");
+        let lbl3 = document.createElement("label");
+        lbl1.classList = "lbl1";
+        lbl2.classList = "lbl2";
+        lbl3.classList = "lbl3";
+        lbl1.innerText = "by:"
+        lbl2.innerText = "pages:";
+        lbl3.innerText = "status:";
 
-        let titleLbl = document.createElement("label");
-        let authorLbl = document.createElement("label");
-        let pagesLbl = document.createElement("label");
-        let didReadLbl = document.createElement("label");
+        let titleLbl = document.createElement("textarea");
+        let authorLbl = document.createElement("textarea");
+        let pagesLbl = document.createElement("textarea");
+        let didReadLbl = document.createElement("textarea");
 
         titleLbl.classList = "titleLbl";
         authorLbl.classList = "authorLbl";
@@ -87,13 +98,20 @@ function render(mainContainer) {
         didReadLbl.classList = "didReadLbl";
 
         titleLbl.innerText = book.title;
-        authorLbl.innerText = "by " + book.author;
-        pagesLbl.innerText = "pages: " + book.pages;
-        didReadLbl.innerText = "status: " + (book.didRead ? "already read" : "not read yet");
+        authorLbl.innerText = book.author;
+        pagesLbl.innerText = book.pages;
+        didReadLbl.innerText = (book.didRead ? "already read" : "not read yet");
+
+        let descContainer = document.createElement("div");
+        descContainer.classList = "descContainer";
+        descContainer.append(lbl1, authorLbl, document.createElement("br"),
+            lbl2, pagesLbl, document.createElement("br"),
+            lbl3, didReadLbl);   
+
+        
 
         bookCard.style.background = colors[getRandomInt(colors.length - 1)];
-        bookCard.append(titleLbl, document.createElement("br"), authorLbl, document.createElement("br"), pagesLbl, document.createElement("br"), didReadLbl);
-
+        bookCard.append(titleLbl, document.createElement("br"), descContainer);
         mainContainer.appendChild(bookCard);
 
     });
